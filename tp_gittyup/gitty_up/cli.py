@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 import typer
 
@@ -34,6 +34,40 @@ def main(
         "--dry-run",
         help="Show what would be done without performing any git operations.",
     ),
+    exclude: List[str] = typer.Option(
+        [],
+        "--exclude",
+        "-e",
+        help="Exclude directories whose names contain this string (can be repeated).",
+    ),
+    max_depth: Optional[int] = typer.Option(
+        None,
+        "--max-depth",
+        min=0,
+        help="Maximum directory recursion depth (0 = only root, 1 = root + children, etc).",
+    ),
+    include_hidden: bool = typer.Option(
+        False,
+        "--include-hidden",
+        help="Include directories starting with '.'.",
+    ),
+    allow_dirty: bool = typer.Option(
+        False,
+        "--allow-dirty",
+        help="Allow git operations in repositories with uncommitted changes.",
+    ),
+    quiet: bool = typer.Option(
+        False,
+        "--quiet",
+        "-q",
+        help="Only print the final summary.",
+    ),
+    verbose: bool = typer.Option(
+        False,
+        "--verbose",
+        "-v",
+        help="Print git command output for each repository.",
+    ),
     version: bool = typer.Option(
         False,
         "--version",
@@ -44,7 +78,16 @@ def main(
 ) -> None:
     """Entry point command used by the console script."""
     root = path or Path.cwd()
-    config = Config(root_path=root, dry_run=dry_run)
+    config = Config(
+        root_path=root,
+        dry_run=dry_run,
+        exclude=exclude,
+        max_depth=max_depth,
+        include_hidden=include_hidden,
+        allow_dirty=allow_dirty,
+        quiet=quiet,
+        verbose=verbose,
+    )
     exit_code = run_pipeline(config)
     raise typer.Exit(code=exit_code)
 

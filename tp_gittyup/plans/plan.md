@@ -250,6 +250,7 @@
   - Add dirty-repo handling and `--allow-dirty`.
   - Add verbosity flags (`--quiet`, `--verbose`).
   - Improve summary formatting.
+  - Add version output ('--version')
 - **Phase 4: Testing, docs, and packaging**
   - Write comprehensive unit and basic integration tests.
   - Polish README with examples and screenshots/asciinema.
