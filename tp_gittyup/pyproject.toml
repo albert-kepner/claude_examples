@@ -1,7 +1,7 @@
 [project]
 name = "gitty-up"
 version = "0.1.0"
-description = "CLI tool to recursively discover git repositories and (eventually) update them."
+description = "CLI tool to recursively discover git repositories and update them with git pull --all."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -9,6 +9,28 @@ dependencies = [
     "colorama>=0.4.6",
     "pytest>=9.0.2",
 ]
+
+authors = [
+    { name = "Gitty Up Contributors" },
+]
+license = { text = "MIT" }
+keywords = ["git", "cli", "developer-tools", "automation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Environment :: Console",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://example.com/gitty-up"
+Source = "https://example.com/gitty-up/source"
+Issues = "https://example.com/gitty-up/issues"
 
 [project.scripts]
 gitty-up = "gitty_up.cli:main"
