@@ -5,7 +5,7 @@ description = "CLI tool to recursively discover git repositories and update them
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "typer>=0.12.3",
+    "typer==0.12.3",
     "colorama>=0.4.6",
     "pytest>=9.0.2",
 ]
@@ -13,12 +13,11 @@ dependencies = [
 authors = [
     { name = "Gitty Up Contributors" },
 ]
-license = { text = "MIT" }
+license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
 keywords = ["git", "cli", "developer-tools", "automation"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.14",
