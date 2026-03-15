@@ -42,7 +42,7 @@
 
 ## 3. Technology & Architecture
 
-- **Language**: Python 3.10+ (assumption; we can adjust).
+- **Language**: Python 3.14+ 
 - **Packaging / distribution**:
   - Standard Python package (e.g. `gitty_up`).
   - Installable via `pip` with console script entry point (`gitty-up`).
@@ -197,8 +197,8 @@
     - `runner.py` – orchestration and result aggregation.
     - `output.py` – color and formatting helpers.
     - `__init__.py`.
-  - `tests/` – unit tests & some integration tests.
-  - `pyproject.toml` or `setup.py` – packaging and dependencies.
+  - `tests/` – unit tests & some integration tests using pytest
+  - `pyproject.toml` – packaging and dependencies using uv
   - `README.md`, `LICENSE`, `CHANGELOG.md`.
 - **Testing strategy**:
   - **Unit tests**:
@@ -209,14 +209,10 @@
     - Use a temp directory with small git repos initialized during tests.
     - Run the CLI with `--dry-run` and with real `git pull` against dummy remotes.
   - **Static checks**:
-    - `flake8` or `ruff` for linting.
-    - `black` or `ruff format` for formatting.
+    -  `ruff` for linting.
+    -  `ruff format` for formatting.
     - `mypy` (optional) for type checking.
-- **CI/CD**:
-  - GitHub Actions (or similar) to:
-    - Run tests on push/PR.
-    - Lint/type-check.
-    - Optionally publish to PyPI on tag.
+
 
 ---
 

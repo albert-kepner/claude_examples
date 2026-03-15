@@ -3,7 +3,7 @@ name = "gitty-up"
 version = "0.1.0"
 description = "CLI tool to recursively discover git repositories and (eventually) update them."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.14"
 dependencies = [
     "typer>=0.12.3",
     "colorama>=0.4.6",
